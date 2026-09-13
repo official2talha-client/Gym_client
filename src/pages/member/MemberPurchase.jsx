@@ -36,6 +36,11 @@ function MemberPurchase() {
         <p className="mt-1 text-sm text-[#8f817a]">
           View your membership purchase requests and their current status.
         </p>
+
+        <p className="mt-1 text-sm font-bold uppercase text-[#ff0000]">
+          # after admin accept your purchase request, you will get the membership and membership card.  Please contact us for payment.
+        </p>
+
       </div>
 
       {/* Purchase Records */}

@@ -12,17 +12,21 @@ const statusParam = searchParams.get("status");
   const [status,setStatus] = useState(statusParam || null)
   const [startDate,setStartDate] = useState(null)
   const [endDate,setEndDate] = useState(null)
+  const [phone,setPhone] = useState(null);
 
 
   const { data, isLoading, isError,refetch } = useGetAllPurchasesQuery({
 
     status,
+    phone,
     startDate,
-    endDate
+    endDate,
    
   });
 
   const allPurchase = data?.data || [];
+  console.log(allPurchase);
+  
 
   if (isLoading) {
     return (
@@ -62,6 +66,21 @@ const statusParam = searchParams.get("status");
 <div className="mb-5 rounded-xl border border-white/10 bg-[#17100d] p-4">
   <div className="flex flex-wrap items-end gap-3">
 
+    {/* Phone Search */}
+    <div className="w-full sm:w-auto sm:min-w-[220px]">
+      <label className="mb-1.5 block text-xs font-medium text-ink-muted">
+        Phone
+      </label>
+
+      <input
+        type="text"
+        placeholder="Search phone..."
+        value={phone || ""}
+        onChange={(e) => setPhone(e.target.value || null)}
+        className="h-10 w-full rounded-lg border border-white/10 bg-[#211914] px-3 text-sm text-white placeholder:text-ink-muted outline-none transition focus:border-orange-500"
+      />
+    </div>
+
     {/* Status */}
     <div className="w-full sm:w-auto sm:min-w-[160px]">
       <label className="mb-1.5 block text-xs font-medium text-ink-muted">
@@ -86,12 +105,12 @@ const statusParam = searchParams.get("status");
         From
       </label>
 
-     <input
-  type="date"
-  value={startDate || ""}
-  onChange={(e) => setStartDate(e.target.value || null)}
-  className="h-10 w-full rounded-lg border border-white/10 bg-[#211914] px-3 text-sm text-white outline-none transition focus:border-orange-500 [color-scheme:dark]"
-/>
+      <input
+        type="date"
+        value={startDate || ""}
+        onChange={(e) => setStartDate(e.target.value || null)}
+        className="h-10 w-full rounded-lg border border-white/10 bg-[#211914] px-3 text-sm text-white outline-none transition focus:border-orange-500 [color-scheme:dark]"
+      />
     </div>
 
     {/* End Date */}
@@ -109,10 +128,11 @@ const statusParam = searchParams.get("status");
     </div>
 
     {/* Clear */}
-    {(status || startDate || endDate) && (
+    {(phone || status || startDate || endDate) && (
       <button
         type="button"
         onClick={() => {
+          setPhone(null);
           setStatus(null);
           setStartDate(null);
           setEndDate(null);
@@ -126,8 +146,9 @@ const statusParam = searchParams.get("status");
   </div>
 </div>
 
-      {/* Purchase Records */}
-      {allPurchase.length > 0 ? (
+
+  {/* Purchase Records */}
+  {allPurchase.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:grid-cols-4 md:gap-5">
   {allPurchase.map((purchase) => (
     <PurchaseCard
@@ -137,7 +158,7 @@ const statusParam = searchParams.get("status");
     />
   ))}
 </div>
-      ) : (
+  ) : (
         /* Empty State */
         <div className="flex min-h-[300px] flex-col items-center justify-center rounded-2xl border border-[#342620] bg-[#1d1512] px-6 text-center">
           <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#ff681d]/10 text-[#ff681d]">
@@ -152,7 +173,7 @@ const statusParam = searchParams.get("status");
             User hasn't made any membership purchase requests yet.
           </p>
         </div>
-      )}
+  )}
     </section>
   );
 }

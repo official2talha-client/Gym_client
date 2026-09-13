@@ -56,13 +56,14 @@ export const purchaseApi = createApi({
 
     // Get all purchases
     getAllPurchases: builder.query({
-  query: ({ status, startDate, endDate } = {}) => ({
+  query: ({ status, startDate, endDate ,phone} = {}) => ({
     url: "/purchases/",
     method: "GET",
     params: {
       ...(status && { status }),
       ...(startDate && { startDate }),
       ...(endDate && { endDate }),
+      ...(phone && {phone})
     },
   }),
   providesTags: ["purchase"],
