@@ -18,24 +18,6 @@ export default function Footer() {
     const business = data?.data;
 
 
-      if (isLoading) {
-    return (
-      <div className="flex min-h-[300px] items-center justify-center">
-        <p className="text-sm text-[#8f817a]">Loading...</p>
-      </div>
-    );
-  }
-
-  if (isError) {
-    return (
-      <div className="rounded-2xl border border-red-500/20 bg-red-500/5 p-6 text-center">
-        <p className="text-sm text-red-400">
-          Failed to load your data.
-        </p>
-      </div>
-    );
-  }
-
   return (
     <footer className="relative overflow-hidden border-t border-white/5 bg-base pt-16">
       <span
