@@ -25,7 +25,6 @@ const statusParam = searchParams.get("status");
   });
 
   const allPurchase = data?.data || [];
-  console.log(allPurchase);
   
 
   if (isLoading) {
