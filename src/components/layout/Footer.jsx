@@ -50,9 +50,9 @@ export default function Footer() {
           <div>
             <h4 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">Contact</h4>
             <ul className="space-y-3 text-sm text-ink-muted">
-              <li>{business?.address}</li>
-              <li>{business?.phone}</li>
-              <li>{business?.email}</li>
+              <li>{business?.address || "Gym Address"}</li>
+              <li>{business?.phone || "Gym Phone"}</li>
+              <li>{business?.email || "Gym Email"}</li>
             </ul>
           </div>
 
