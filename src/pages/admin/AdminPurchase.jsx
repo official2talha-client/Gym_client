@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useGetAllPurchasesQuery } from "../../api/purchaseApi.js";
 import PurchaseCard from "../../components/admin/PurchaseCard.jsx";
 import { useSearchParams } from "react-router-dom";
+import { Search } from "lucide-react";
 
 function AdminPurchase() {
 
@@ -12,7 +13,8 @@ const statusParam = searchParams.get("status");
   const [status,setStatus] = useState(statusParam || null)
   const [startDate,setStartDate] = useState(null)
   const [endDate,setEndDate] = useState(null)
-  const [phone,setPhone] = useState(null);
+  const [phone, setPhone] = useState(null);
+  const [phoneInput, setPhoneInput] = useState("");
 
 
   const { data, isLoading, isError,refetch } = useGetAllPurchasesQuery({
@@ -66,18 +68,35 @@ const statusParam = searchParams.get("status");
   <div className="flex flex-wrap items-end gap-3">
 
     {/* Phone Search */}
-    <div className="w-full sm:w-auto sm:min-w-[220px]">
+    <div className="w-full sm:w-auto sm:min-w-[260px]">
       <label className="mb-1.5 block text-xs font-medium text-ink-muted">
         Phone
       </label>
 
-      <input
-        type="text"
-        placeholder="Search phone..."
-        value={phone || ""}
-        onChange={(e) => setPhone(e.target.value || null)}
-        className="h-10 w-full rounded-lg border border-white/10 bg-[#211914] px-3 text-sm text-white placeholder:text-ink-muted outline-none transition focus:border-orange-500"
-      />
+      <div className="flex h-10 overflow-hidden rounded-lg border border-white/10 bg-[#211914] focus-within:border-orange-500">
+        <input
+          type="text"
+          placeholder="Search phone..."
+          value={phoneInput}
+          onChange={(e) => setPhoneInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              setPhone(e.target.value || null);
+            }
+          }}
+          className="min-w-0 flex-1 bg-transparent px-3 text-sm text-white placeholder:text-ink-muted outline-none"
+        />
+
+        <button
+          type="button"
+          onClick={() => {
+            setPhone(phoneInput || null);
+          }}
+          className="flex w-10 shrink-0 items-center justify-center border-l border-white/10 text-ink-muted transition hover:bg-orange-500/10 hover:text-orange-500"
+        >
+          <Search size={17} />
+        </button>
+      </div>
     </div>
 
     {/* Status */}
@@ -127,11 +146,12 @@ const statusParam = searchParams.get("status");
     </div>
 
     {/* Clear */}
-    {(phone || status || startDate || endDate) && (
+    {(phone || status || startDate || endDate || phoneInput) && (
       <button
         type="button"
         onClick={() => {
           setPhone(null);
+          setPhoneInput("");
           setStatus(null);
           setStartDate(null);
           setEndDate(null);
