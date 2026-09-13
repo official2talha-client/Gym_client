@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width:thin;
+}
+/* Gym Theme Scrollbar */
+.gym-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #f97316 #211613;
+}
+
+/* Chrome, Edge, Safari */
+.gym-scrollbar::-webkit-scrollbar {
+  height: 7px;
+  width: 7px;
+}
+
+.gym-scrollbar::-webkit-scrollbar-track {
+  background: #211613;
+  border-radius: 9999px;
+}
+
+.gym-scrollbar::-webkit-scrollbar-thumb {
+  background: #f97316;
+  border-radius: 9999px;
+  border: 1px solid #1b1210;
+}
+
+.gym-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #fb923c;
+}
+  body {
+    background-color: #150e0b;
+  }
+
+  ::selection {
+    background-color: #f56a1f;
+    color: #150e0b;
+  }
+
+  /* Consistent, visible focus ring across every interactive element */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid #f97316;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: theme('fontFamily.display');
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+
+  /* Native form elements always get styled -- never left as unstyled browser defaults */
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+  }
+}
+
+@layer utilities {
+  .ghost-word {
+    font-family: theme('fontFamily.display');
+    color: #ffffff;
+    opacity: 0.035;
+    user-select: none;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .container-page {
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-10;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
