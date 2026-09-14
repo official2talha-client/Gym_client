@@ -145,7 +145,7 @@ export default function TrainerCard({ trainer,index }) {
         </div>
 
         {/* Achievements */}
-        <div className="mt-5">
+        {/* <div className="mt-5">
           <p
             className="
               mb-2 text-[10px] font-semibold
@@ -173,7 +173,7 @@ export default function TrainerCard({ trainer,index }) {
               </span>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* CTA */}

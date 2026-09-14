@@ -33,6 +33,34 @@ const ExerciseVideo = () => {
 
   const currentBodyPart = bodypart || "Chest";
 
+  if (isLoading) {
+    return (
+      <div className="flex min-h-[300px] items-center justify-center">
+        <button>back</button>
+        <p className="text-sm text-[#8f817a]">Loading...</p>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="rounded-2xl border border-red-500/20 bg-red-500/5 p-6 text-center">
+        <p className="text-sm text-red-400">
+          Failed to load exercise video.
+        </p>
+      </div>
+    );
+  }
+
+  if (exercises.length === 0) {
+    return (
+     <div className="flex min-h-[300px] items-center justify-center">
+        <p className="text-sm text-[#8f817a]">No Exercise Video Availabel...</p>
+      </div>
+    );
+  }
+
+
   return (
     <section className="min-h-screen bg-[#100b09] text-white pt-12">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
@@ -77,38 +105,58 @@ const ExerciseVideo = () => {
 
         {/* Filters */}
         <div className="mt-7 flex gap-2 overflow-x-auto pb-2 scrollbar-hide sm:mt-8 sm:gap-3">
-          <button className="shrink-0 rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1.5 text-[10px] font-semibold text-orange-400 sm:px-4 sm:py-2 sm:text-xs">
-            All Equipment
-          </button>
+  {/* All Equipment */}
+  <button
+    onClick={() => setSelDifficulty("")}
+    className={`shrink-0 rounded-full px-3 py-1.5 text-[10px] font-semibold transition sm:px-4 sm:py-2 sm:text-xs ${
+      selDifficulty === ""
+        ? "border border-orange-500/30 bg-orange-500/10 text-orange-400"
+        : "border border-[#3a2b27] bg-[#1b1210] text-gray-400 hover:border-orange-500/30 hover:text-orange-400"
+    }`}
+  >
+    All Equipment
+  </button>
 
-          <button className="shrink-0 rounded-full border border-[#3a2b27] bg-[#1b1210] px-3 py-1.5 text-[10px] text-gray-400 transition hover:border-orange-500/30 hover:text-orange-400 sm:px-4 sm:py-2 sm:text-xs">
-            Beginner
-          </button>
+  {/* Beginner */}
+  <button
+    onClick={() => setSelDifficulty("beginner")}
+    className={`shrink-0 rounded-full px-3 py-1.5 text-[10px] font-semibold transition sm:px-4 sm:py-2 sm:text-xs ${
+      selDifficulty === "beginner"
+        ? "border border-orange-500/30 bg-orange-500/10 text-orange-400"
+        : "border border-[#3a2b27] bg-[#1b1210] text-gray-400 hover:border-orange-500/30 hover:text-orange-400"
+    }`}
+  >
+    Beginner
+  </button>
 
-          <button className="shrink-0 rounded-full border border-[#3a2b27] bg-[#1b1210] px-3 py-1.5 text-[10px] text-gray-400 transition hover:border-orange-500/30 hover:text-orange-400 sm:px-4 sm:py-2 sm:text-xs">
-            Intermediate
-          </button>
+  {/* Intermediate */}
+  <button
+    onClick={() => setSelDifficulty("intermediate")}
+    className={`shrink-0 rounded-full px-3 py-1.5 text-[10px] font-semibold transition sm:px-4 sm:py-2 sm:text-xs ${
+      selDifficulty === "intermediate"
+        ? "border border-orange-500/30 bg-orange-500/10 text-orange-400"
+        : "border border-[#3a2b27] bg-[#1b1210] text-gray-400 hover:border-orange-500/30 hover:text-orange-400"
+    }`}
+  >
+    Intermediate
+  </button>
 
-          <button className="shrink-0 rounded-full border border-[#3a2b27] bg-[#1b1210] px-3 py-1.5 text-[10px] text-gray-400 transition hover:border-orange-500/30 hover:text-orange-400 sm:px-4 sm:py-2 sm:text-xs">
-            Advanced
-          </button>
-        </div>
+  {/* Advanced */}
+  <button
+    onClick={() => setSelDifficulty("advanced")}
+    className={`shrink-0 rounded-full px-3 py-1.5 text-[10px] font-semibold transition sm:px-4 sm:py-2 sm:text-xs ${
+      selDifficulty === "advanced"
+        ? "border border-orange-500/30 bg-orange-500/10 text-orange-400"
+        : "border border-[#3a2b27] bg-[#1b1210] text-gray-400 hover:border-orange-500/30 hover:text-orange-400"
+    }`}
+  >
+    Advanced
+  </button>
+</div>
 
         {/* =========================
             VIDEO GRID
         ========================== */}
-
-{!isError && isLoading && (
-  <h1>loading..</h1>
-)}
-
-{!isLoading && isError && (
-  <h1>error</h1>
-)}
-
-  {!isLoading && !isError && exercises && exercises.length === 0 &&(
-  <h1>empty</h1>
-)}
 
         <div className="mt-4 grid grid-cols-2 gap-3  sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">
 

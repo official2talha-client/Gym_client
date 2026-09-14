@@ -246,9 +246,9 @@ export const partners = [
 ]
 
 export const statBadges = [
-  { id: 's1', value: 10, suffix: '+', label: 'Years Running' },
-  { id: 's2', value: 50, suffix: '+', label: 'Trainers & Staff' },
-  { id: 's3', value: 1200, suffix: '+', label: 'Members Trained' },
+  { id: 's1', value: 2, suffix: '+', label: 'Years Running' },
+  { id: 's2', value: 10, suffix: '+', label: 'Trainers & Staff' },
+  { id: 's3', value: 1000, suffix: '+', label: 'Members Trained' },
   { id: 's4', value: 98, suffix: '%', label: 'Member Retention' },
 ]
 

@@ -33,7 +33,7 @@ const ManageExerciseVideos = () => {
 
 
   return (
-    <div className="min-h-screen w-full bg-[#0F0B09] p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen w-full bg-[#0F0B09] space-y-4 sm:p-6 lg:p-8">
       {/* Header */}
       <div className="mb-7">
         <div className="flex items-center gap-3">

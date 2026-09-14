@@ -75,13 +75,7 @@ export default function TrainerSection() {
 
       {!isLoading && !isError && trainers && trainers.length > 0 && (
         <>
-          {/* Desktop / tablet grid */}
-          {/* <div className=" gap-6 sm:grid sm:grid-cols-1 lg:grid-cols-1 hidden">
-            {trainers.slice(0,3).map((t,index) => (
-                <TrainerCard trainer={t} index={index} />
-            ))}
-          </div> */}
-
+          
           {/* Mobile carousel */}
           <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 ">
             {trainers.slice(0,3).map((t) => (

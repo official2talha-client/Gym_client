@@ -87,8 +87,8 @@ export default function Hero() {
           transition={{ delay: reduced ? 0 : 0.44, duration: 0.6 }}
           className="mt-8 flex flex-wrap items-center gap-4"
         >
-          <PillButton to="/plans" variant="orange">Book Free Trial</PillButton>
           <PillButton to="/plans" variant="light">View Membership Plans</PillButton>
+          <PillButton to="/exercise" variant="orange">Demo Exercise Videos</PillButton>
         </motion.div>
       </div>
 

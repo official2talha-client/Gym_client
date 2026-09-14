@@ -65,7 +65,7 @@ const Members = () => {
   };
 
   return (
-   <div className="min-h-screen bg-[#0f0b09] px-3 py-4 text-white sm:px-5 sm:py-5">
+   <div className="min-h-screen bg-[#0f0b09] py-4 text-white sm:px-5 sm:py-5">
   {/* ================= TOP BAR ================= */}
   <div className="mb-5 flex flex-col gap-3 sm:mb-7">
     
