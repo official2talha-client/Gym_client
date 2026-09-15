@@ -59,7 +59,7 @@ export default function Navbar() {
   {/* Gym Logo */}
   <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl">
     <img
-      src={business?.logo}
+      src={business?.logo || "https://static.vecteezy.com/system/resources/previews/013/663/172/non_2x/fitness-gym-center-and-body-building-logo-design-in-black-and-orange-color-free-vector.jpg"}
       alt={`${business?.name || "Gym"} logo`}
       className="
         h-full w-full
