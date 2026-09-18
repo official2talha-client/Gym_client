@@ -10,10 +10,11 @@ export const GYM_NAME = 'Fit Elegant Gym & Café'
 export const GYM_SHORT_NAME = 'Fit Elegant'
 export const GYM_TAGLINE = "Dhaka's premium strength & transformation studio"
 export const GYM_ADDRESS = 'House __, Road __, Dhaka, Bangladesh' // sample
-export const GYM_PHONE = '+880 1XXX-XXXXXX' // sample
-export const GYM_PHONE_TEL = '+8801XXXXXXXX' // sample, for tel: links
+export const GYM_PHONE = '+880 12345678' // sample
+export const GYM_PHONE_TEL = '+880188254685' // sample, for tel: links
 export const GYM_HOURS = 'Sat–Thu: 6:00 AM – 10:00 PM · Fri: 4:00 PM – 10:00 PM' // sample
 export const GYM_EMAIL = 'hello@fitelegant.example' // sample
+import {useGetBusinessForUserQuery} from '../api/adminApi.js'
 
 // Generic Dhaka, Bangladesh map center -- swap for the real address embed later.
 export const GYM_MAP_EMBED =
@@ -22,8 +23,6 @@ export const GYM_LAT = 23.8103
 export const GYM_LNG = 90.4125
 
 export const FB_PAGE_URL = 'https://www.facebook.com/p/Fit-Elegant-Gym-Cafe-61569323227463/'
-export const WHATSAPP_NUMBER = '8801XXXXXXXX' // sample, digits only for wa.me
-export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`
 
 export const HERO_VIDEO = null // pass a real video src later; component falls back automatically
 export const HERO_IMAGE =

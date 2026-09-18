@@ -1,4 +1,7 @@
-import { WHATSAPP_URL } from '../../lib/constants'
+import { useGetBusinessForUserQuery } from "../../api/adminApi"
+
+
+
 
 /**
  * Persistent floating contact button -- the single highest-converting
@@ -6,9 +9,13 @@ import { WHATSAPP_URL } from '../../lib/constants'
  * area. Links out to WhatsApp; swap WHATSAPP_URL for a real number later.
  */
 export default function WhatsAppFAB() {
+
+  const {data}=useGetBusinessForUserQuery()
+  const business = data?.data;
+  
   return (
     <a
-      href={WHATSAPP_URL}
+      href={`https://wa.me/${business?.phone}` || `https://wa.me/01xxxxxxxxx`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
