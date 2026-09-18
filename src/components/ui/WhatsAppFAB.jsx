@@ -15,7 +15,7 @@ export default function WhatsAppFAB() {
   
   return (
     <a
-      href={`https://wa.me/${business?.phone}` || `https://wa.me/01xxxxxxxxx`}
+      href={`https://wa.me/+88${business?.phone}` || `https://wa.me/01xxxxxxxxx`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
