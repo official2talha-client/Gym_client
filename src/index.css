@@ -76,7 +76,9 @@
   h4 {
     font-family: theme('fontFamily.display');
     text-transform: uppercase;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.em;
+    color:rgb(218, 213, 202);
+    
   }
 
   /* Native form elements always get styled -- never left as unstyled browser defaults */

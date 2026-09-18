@@ -19,7 +19,7 @@ export default function About() {
           <motion.div
             animate={reduced ? {} : { rotate: 360 }}
             transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-            className="absolute -right-4 -top-4 flex h-24 w-24 items-center justify-center rounded-full border border-accent/30 bg-base-card/90 text-center text-xs font-bold uppercase leading-tight text-accent-light shadow-lg sm:h-28 sm:w-28"
+            className="absolute -right-4 -top-4 flex h-24 w-24 items-center justify-center rounded-full bg-base-card/90 text-center text-xs font-bold uppercase leading-tight text-accent-light shadow-lg sm:h-28 sm:w-28"
           >
             Est. — Dhaka's Fitness Studio
           </motion.div>

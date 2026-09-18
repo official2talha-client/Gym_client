@@ -57,7 +57,7 @@ export default function Hero() {
       </span>
 
       <div className="container-page relative z-10 w-full pb-28 sm:pb-32">
-        <h1 className="max-w-4xl font-display text-[13vw] leading-[0.95] text-white sm:text-6xl md:text-7xl lg:text-8xl">
+        <h1 className="max-w-4xl font-display text-[13vw] leading-[0.95]  sm:text-6xl md:text-7xl lg:text-8xl">
           {HEADLINE_LINES.map((line, i) => (
             <motion.span
               key={line}
