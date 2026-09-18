@@ -331,7 +331,7 @@ const confirmPurchase = async()=>{
 
             <div>
 
-        <button className="w-full rounded-lg bg-orange-500 px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-black transition hover:bg-orange-400" onClick={()=>setOpen(true)} >
+        <button className="w-full rounded-lg bg-accent px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-black transition hover:bg-orange-400" onClick={()=>setOpen(true)} >
             Make Purchase
             </button>
 

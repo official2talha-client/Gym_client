@@ -26,7 +26,7 @@
 /* Gym Theme Scrollbar */
 .gym-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #f97316 #211613;
+  scrollbar-color: #cd6713 #211613;
 }
 
 /* Chrome, Edge, Safari */
@@ -41,13 +41,13 @@
 }
 
 .gym-scrollbar::-webkit-scrollbar-thumb {
-  background: #f97316;
+  background: #e15e18;
   border-radius: 9999px;
   border: 1px solid #1b1210;
 }
 
 .gym-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #fb923c;
+  background: #e15e18;
 }
   body {
     background-color: #150e0b;
@@ -65,7 +65,7 @@
   select:focus-visible,
   textarea:focus-visible,
   [tabindex]:focus-visible {
-    outline: 2px solid #f97316;
+    outline: 2px solid #f1741a;
     outline-offset: 3px;
     border-radius: 4px;
   }

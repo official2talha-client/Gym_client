@@ -77,7 +77,7 @@ export default function TrainerSection() {
         <>
           
           {/* Mobile carousel */}
-          <div className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 ">
+          <div className=" -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 gym-scrollbar">
             {trainers.slice(0,3).map((t) => (
               <div key={t.id} className="w-[78%] shrink-0 snap-start">
                 <TrainerCard trainer={t} />

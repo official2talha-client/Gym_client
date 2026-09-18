@@ -167,224 +167,449 @@ function Exercise() {
   <h1>empty</h1>
 )}   
 
-  <div className="grid grid-cols-2 gap-4 sm:gap-8 sm:grid-cols-3 lg:grid-cols-4 ">
+  <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-7 lg:grid-cols-4">
 
-{!isLoading && !isError && allBodyParts && allBodyParts?.bodyParts.length > 0 && (
+  {!isLoading &&
+    !isError &&
+    allBodyParts &&
+    allBodyParts?.bodyParts.length > 0 &&
+    allBodyParts?.bodyParts.map((bodyPart) => {
 
-  allBodyParts?.bodyParts?.map((bodyPart) => {
-      
       const visual = bodyPartVisuals[bodyPart.toLowerCase()];
 
-    if (!visual) return null;
+      if (!visual) return null;
 
-    return (
+      return (
+        <Link
+          key={bodyPart}
+          to={`/exercise-video/${bodyPart}`}
+          className="block"
+        >
 
-        <Link to={`/exercise-video/${bodyPart}`}>
-
-     <div className="group [perspective:1400px]">
-  <button
-    key={bodyPart}
-    type="button"
-    className="
-      relative w-full
-      [transform-style:preserve-3d]
-      transition-all duration-500 ease-out
-      hover:-translate-y-4
-      hover:[transform:rotateX(4deg)_rotateY(-4deg)]
-    "
-  >
-    {/* =========================
-        3D BOX
-    ========================== */}
-
-    <div
-      className="
-        relative
-        [transform-style:preserve-3d]
-      "
-    >
-      {/* FRONT FACE */}
-      <div
-        className="
-          relative z-20
-          overflow-hidden
-          rounded-2xl
-          border border-orange-500/25
-          bg-[#211512]
-          shadow-[0_12px_25px_rgba(0,0,0,0.45)]
-          [transform:translateZ(18px)]
-        "
-      >
-        {/* Top edge highlight */}
-        <div
-          className="
-            absolute left-4 right-4 top-0 z-30
-            h-px
-            bg-gradient-to-r
-            from-transparent
-            via-orange-400/70
-            to-transparent
-          "
-        />
-
-        {/* IMAGE */}
-        <div className="relative h-44 overflow-hidden">
-          <img
-            src={visual.image}
-            alt={visual.name}
-            className="
-              h-full w-full object-cover
-              transition-transform duration-700
-              group-hover:scale-110
-            "
-          />
-
-          {/* Dark gradient */}
+          {/* =========================
+              3D STAGE
+          ========================== */}
           <div
             className="
-              absolute inset-0
-              bg-gradient-to-t
-              from-[#211512]
-              via-transparent
-              to-black/10
+              group
+              relative
+              [perspective:900px]
             "
-          />
+          >
 
-          {/* Orange light */}
-          <div
-            className="
-              absolute inset-0
-              bg-orange-500/0
-              transition duration-500
-              group-hover:bg-orange-500/10
-            "
-          />
-        </div>
-
-        {/* CONTENT */}
-        <div className="p-4">
-          <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-orange-500">
-            Muscle Group
-          </p>
-
-          <h3 className="mt-1 text-lg font-black uppercase tracking-wide text-white">
-            {visual.name}
-          </h3>
-
-          <div className="mt-4 flex items-center justify-between">
-            <span className="text-xs text-gray-500">
-              Explore exercises
-            </span>
-
-            <span
+            {/* =========================
+                CARD
+            ========================== */}
+            <div
               className="
-                flex h-9 w-9 items-center justify-center
-                rounded-xl
-                border border-orange-500/30
-                bg-orange-500/10
-                text-lg text-orange-500
-                transition-all duration-300
-                group-hover:bg-orange-500
-                group-hover:text-black
-                group-hover:shadow-[0_5px_20px_rgba(249,115,22,0.4)]
+                relative
+                h-full
+                [transform-style:preserve-3d]
+
+                transition-all
+                duration-500
+                ease-[cubic-bezier(0.22,1,0.36,1)]
+
+                group-hover:-translate-y-3
+                group-hover:scale-[1.035]
+                group-hover:[transform:rotateX(3deg)_rotateY(-3deg)_translateZ(32px)]
               "
             >
-              →
-            </span>
+
+              {/* =========================
+                  MAIN FRONT FACE
+              ========================== */}
+              <div
+                className="
+                  relative
+                  z-20
+                  overflow-hidden
+                  rounded-[20px]
+
+                  border
+                  border-[#46352e]
+
+                  bg-[#1b1412]
+
+                  shadow-[0_18px_35px_rgba(0,0,0,0.45)]
+
+                  [transform:translateZ(22px)]
+
+                  transition-all
+                  duration-500
+
+                  group-hover:border-[#76513d]
+                  group-hover:shadow-[0_30px_55px_rgba(0,0,0,0.65)]
+                "
+              >
+
+                {/* =========================
+                    TOP METAL HIGHLIGHT
+                ========================== */}
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    left-5
+                    right-5
+                    top-0
+                    z-40
+                    h-px
+
+                    bg-gradient-to-r
+                    from-transparent
+                    via-[#b96a38]/70
+                    to-transparent
+                  "
+                />
+
+                {/* =========================
+                    IMAGE
+                ========================== */}
+                <div
+                  className="
+                    relative
+                    h-40
+                    overflow-hidden
+                    sm:h-44
+                    
+                  "
+                >
+
+                  <img
+                    src={visual.image}
+                    alt={visual.name}
+                    className="
+                      h-full
+                      w-full
+                      object-cover
+
+                      transition-all
+                      duration-700
+                      ease-out
+
+                      group-hover:scale-[1.10]
+                    "
+                  />
+
+                  {/* Dark cinematic gradient */}
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-0
+                      bg-gradient-to-t
+                      from-[#1b1412]
+                      via-[#1b1412]/15
+                      to-black/20
+                    "
+                  />
+
+                  {/* Premium warm light */}
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-0
+
+                      bg-gradient-to-br
+                      from-[#c46b35]/0
+                      via-transparent
+                      to-[#8b3f20]/0
+
+                      transition-all
+                      duration-500
+
+                      group-hover:from-[#c46b35]/10
+                      group-hover:to-[#8b3f20]/15
+                    "
+                  />
+
+                  {/* Image edge */}
+                  <div
+                    className="
+                      absolute
+                      inset-x-0
+                      bottom-0
+                      h-px
+                      bg-[#76513d]/50
+                    "
+                  />
+
+                </div>
+
+
+                {/* =========================
+                    CONTENT
+                ========================== */}
+                <div className="relative p-4 sm:p-4">
+
+                  {/* tiny label */}
+                  <div className="flex items-center gap-2">
+
+                    <span
+                      className="
+                        h-1.5
+                        w-1.5
+                        rounded-full
+                        bg-[#b9602e]
+                        shadow-[0_0_8px_rgba(185,96,46,0.45)]
+                      "
+                    />
+
+                    <p
+                      className="
+                        text-[8px]
+                        font-bold
+                        uppercase
+                        tracking-[0.24em]
+                        text-[#9b6a4b]
+                      "
+                    >
+                      Muscle Group
+                    </p>
+
+                  </div>
+
+
+                  {/* Name */}
+                  <h3
+                    className="
+                      mt-1
+                      text-base
+
+                      uppercase
+                      leading-tight
+                      tracking-[.1em]
+                      text-[#f1ebe5]
+
+                      sm:text-lg
+                    "
+                  >
+                    {visual.name}
+                  </h3>
+
+
+                  {/* Bottom row */}
+                  <div
+                    className="
+                      mt-2
+                      flex
+                      items-center
+                      justify-between
+                      border-t
+                      border-[#332824]
+                      pt-2
+                    "
+                  >
+
+                    <span
+                      className="
+                        text-[9px]
+                        uppercase
+                        tracking-wide
+                        text-[#807571]
+                      "
+                    >
+                      Explore exercises
+                    </span>
+
+
+                    {/* Arrow */}
+                    <span
+                      className="
+                        flex
+                        h-8
+                        w-8
+                        items-center
+                        justify-center
+
+                        rounded-lg
+
+                        border
+                        border-[#5a3d2f]
+
+                        bg-[#bd5c1c]
+
+                        
+                        transition-all
+                        duration-400
+
+                        group-hover:border-[#a85b30]
+                        group-hover:bg-[#b9602e]
+                        group-hover:text-[#160d09]
+
+                        group-hover:shadow-[0_0_18px_rgba(185,96,46,0.25)]
+
+                        
+                      "
+                    >
+                      <span
+                        className="
+                          text-base
+                          transition-transform
+                          duration-300
+                          group-hover:translate-x-0.5
+                          text-black
+                        "
+                      >
+                        →
+                      </span>
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                {/* =========================
+                    INNER LIGHT EDGE
+                ========================== */}
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    inset-0
+                    rounded-[20px]
+
+                    ring-1
+                    ring-inset
+                    ring-white/[0.025]
+
+                    transition-all
+                    duration-500
+
+                    group-hover:ring-[#b9602e]/10
+                  "
+                />
+
+              </div>
+
+
+              {/* =========================
+                  RIGHT 3D SIDE
+              ========================== */}
+              <div
+                className="
+                  absolute
+                  right-0
+                  top-2
+                  z-10
+
+                  h-[calc(100%-8px)]
+                  w-6
+
+                  origin-left
+
+                  rounded-r-[16px]
+
+                  border-r
+                  border-[#553326]
+
+                  bg-gradient-to-b
+                  from-[#5a3021]
+                  via-[#321b14]
+                  to-[#120a08]
+
+                  [transform:rotateY(90deg)]
+                  [transform-origin:left]
+                  [translateZ(22px)]
+                "
+              />
+
+
+              {/* =========================
+                  BOTTOM 3D SIDE
+              ========================== */}
+              <div
+                className="
+                  absolute
+                  bottom-0
+                  left-2
+                  z-10
+
+                  h-6
+                  w-[calc(100%-14px)]
+
+                  origin-top
+
+                  rounded-b-[16px]
+
+                  border-b
+                  border-[#4a2b21]
+
+                  bg-gradient-to-r
+                  from-[#100806]
+                  via-[#432319]
+                  to-[#180c09]
+
+                  [transform:rotateX(-90deg)]
+                  [transform-origin:top]
+                  [translateZ(22px)]
+                "
+              />
+
+
+              {/* =========================
+                  DARK BACK PLATE
+              ========================== */}
+              <div
+                className="
+                  absolute
+                  inset-0
+
+                  rounded-[20px]
+
+                  bg-[#0d0807]
+
+                  shadow-[0_20px_35px_rgba(0,0,0,0.5)]
+
+                  [transform:translateZ(-4px)]
+                "
+              />
+
+
+              {/* =========================
+                  FLOOR SHADOW
+              ========================== */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+
+                  -bottom-7
+                  left-[8%]
+                  right-[8%]
+
+                  h-7
+
+                  rounded-[50%]
+
+                  bg-black/70
+                  blur-xl
+
+                  transition-all
+                  duration-500
+
+                  group-hover:-bottom-9
+                  group-hover:left-[14%]
+                  group-hover:right-[14%]
+                  group-hover:scale-90
+                  group-hover:bg-[#35170e]/40
+                "
+              />
+
+            </div>
+
           </div>
-        </div>
-      </div>
-
-      {/* =========================
-          RIGHT SIDE OF BOX
-      ========================== */}
-
-      <div
-        className="
-          absolute right-0 top-2 z-10
-          h-[calc(100%-8px)]
-          w-5
-          origin-left
-          rounded-r-xl
-          border-r border-orange-950
-          bg-gradient-to-b
-          from-[#4a281c]
-          via-[#2c1812]
-          to-[#120a08]
-          [transform:rotateY(90deg)]
-          [transform-origin:left]
-          [translateZ(18px)]
-        "
-      />
-
-      {/* =========================
-          BOTTOM SIDE OF BOX
-      ========================== */}
-
-      <div
-        className="
-          absolute bottom-0 left-2 z-10
-          h-5
-          w-[calc(100%-12px)]
-          origin-top
-          rounded-b-xl
-          border-b border-orange-950
-          bg-gradient-to-r
-          from-[#120a08]
-          via-[#3a1e16]
-          to-[#160b09]
-          [transform:rotateX(-90deg)]
-          [transform-origin:top]
-          [translateZ(18px)]
-        "
-      />
-
-      {/* =========================
-          DARK BACK / BASE
-      ========================== */}
-
-      <div
-        className="
-          absolute inset-0
-          rounded-2xl
-          bg-[#0d0705]
-          [transform:translateZ(-2px)]
-        "
-      />
-    </div>
-
-    {/* =========================
-        FLOOR SHADOW
-    ========================== */}
-
-    <div
-      className="
-        absolute
-        -bottom-7
-        left-[8%]
-        right-[8%]
-        h-8
-        rounded-[50%]
-        bg-black/70
-        blur-xl
-        transition-all duration-500
-        group-hover:scale-90
-        group-hover:bg-orange-950/30
-      "
-    />
-  </button>
-     </div>
 
         </Link>
-
-    );
-  })
-
-)}
+      );
+    })}
 
 </div>
         
-              </SectionWrapper>
+  </SectionWrapper>
 
         </div>
     )

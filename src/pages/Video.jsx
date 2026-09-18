@@ -238,7 +238,7 @@ const Video = () => {
 
           <div className="overflow-hidden rounded-2xl border border-[#3a2b27] bg-[#1b1210] shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
 
-            <div className="relative aspect-video bg-black">
+            <div className="relative aspect-[4/3] sm:aspect-video bg-black">
 
               <video
                 controls

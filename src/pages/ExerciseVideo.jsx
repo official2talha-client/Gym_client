@@ -193,6 +193,8 @@ const ExerciseVideo = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1b1210] via-transparent to-transparent" />
 
                 {/* Play Button */}
+
+                <Link to={`/video/${video?._id}`}>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div
                     className="
@@ -216,6 +218,7 @@ const ExerciseVideo = () => {
                     />
                   </div>
                 </div>
+                </Link>
 
                 {/* Video Number */}
                 <span

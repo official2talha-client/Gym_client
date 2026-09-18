@@ -110,7 +110,7 @@ export default function TrainerCard({ trainer,index }) {
           Trainer Profile
         </p>
 
-        <h3 className="mt-2 text-xl font-bold text-white">
+        <h3 className="mt-2 text-xl text-white">
           {trainer?.name}
         </h3>
 

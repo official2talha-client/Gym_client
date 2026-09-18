@@ -10,178 +10,315 @@ const PlanCard = ({ plan }) => {
   const navigate = useNavigate()
 
   return (
-    <div className="w-[300px] shrink-0 overflow-hidden rounded-2xl border border-[#3a2b27] bg-[#1b1210] ">
+    <div
+  className="
+    group
+    relative
+    w-[310px]
+    shrink-0
+    overflow-hidden
+    rounded-2xl
+    border border-[#3a2d29]
+    bg-[#1b1412]
+    shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+    transition-all duration-300
+    hover:-translate-y-1
+    hover:border-[#594239]
+    hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)]
+  "
+>
+  {/* subtle accent glow */}
+  <div
+    className="
+      pointer-events-none
+      absolute
+      -right-16
+      -top-16
+      h-36
+      w-36
+      rounded-full
+      bg-[#b85f29]/[0.06]
+      blur-3xl
+      transition-all
+      duration-500
+      group-hover:bg-[#b85f29]/[0.10]
+    "
+  />
 
-    <div className="p-4 h-full flex flex-col">
-  {/* Type + Gender */}
-  <div className="mb-3 flex items-center justify-between">
-    <span className="text-xs font-bold uppercase tracking-[0.18em] text-orange-500">
-      {plan?.type}
-    </span>
+  <div className="relative flex h-full flex-col p-5">
 
-    <span className="rounded-full border border-orange-500/30 bg-orange-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase text-orange-400">
-      {plan?.gender === "both" ? "All Members" : plan?.gender}
-    </span>
-  </div>
+    {/* Type + Gender */}
+    <div className="mb-4 flex items-center justify-between">
 
-  {/* Name */}
-  <h2 className="text-2xl font-black uppercase leading-tight text-white">
-    {plan?.name}
-  </h2>
-
-  {/* Description */}
-  <p className="mt-2 text-xs leading-5 text-gray-400">
-    {plan?.description}
-  </p>
-
-  {/* Price */}
-  <div className="mt-4">
-    <div className="flex items-end gap-1.5">
-      <span className="text-3xl font-black leading-none text-orange-500">
-        ৳{plan?.totalCharge?.toLocaleString()}
+      <span
+        className="
+          text-[10px]
+          font-bold
+          uppercase
+          tracking-[0.18em]
+          text-[#c46a32]
+        "
+      >
+        {plan?.type}
       </span>
 
-      <span className=" text-xs text-gray-400">
-        / {plan?.duration}
+      <span
+        className="
+          rounded-full
+          border border-[#594239]
+          bg-[#261c19]
+          px-3
+          py-1
+          text-[9px]
+          font-semibold
+          uppercase
+          tracking-wide
+          text-[#a99b94]
+        "
+      >
+        {plan?.gender === "both"
+          ? "All Members"
+          : plan?.gender}
       </span>
+
     </div>
 
-    <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-[10px] text-gray-500">
-      <span>
-        Enrollment: ৳{plan?.enrollmentCharge?.toLocaleString()}
-      </span>
+    {/* Name */}
+    <h2
+      className="
+        text-[25px]
+        uppercase
+        leading-tight
+        text-[#ede8e3]
+      "
+    >
+      {plan?.name}
+    </h2>
 
-      <span>
-        Subscription: ৳{plan?.subscriptionCharge?.toLocaleString()}
-      </span>
+    {/* Description */}
+    <p
+      className="
+        mt-2
+        line-clamp-2
+        text-[11px]
+        leading-5
+        text-[#918681]
+      "
+    >
+      {plan?.description}
+    </p>
+
+    {/* Price */}
+    <div className="mt-5">
+
+      <div className="flex items-end gap-2">
+
+        <span
+          className="
+            text-[32px]
+            font-black
+            leading-none
+            tracking-tight
+            text-[#c46a32]
+          "
+        >
+          ৳{plan?.totalCharge?.toLocaleString()}
+        </span>
+
+        <span className="mb-1 text-[10px] text-[#746b67]">
+          / {plan?.duration}
+        </span>
+
+      </div>
+
+      <div
+        className="
+          mt-2.5
+          flex
+          flex-wrap
+          gap-x-4
+          gap-y-1
+          text-[9px]
+          text-[#756b66]
+        "
+      >
+        <span>
+          Enrollment:
+          <span className="ml-1 text-[#aaa09a]">
+            ৳{plan?.enrollmentCharge?.toLocaleString()}
+          </span>
+        </span>
+
+        <span>
+          Subscription:
+          <span className="ml-1 text-[#aaa09a]">
+            ৳{plan?.subscriptionCharge?.toLocaleString()}
+          </span>
+        </span>
+      </div>
+
     </div>
-  </div>
 
-  {/* Divider */}
-  <div className="my-2 h-px bg-[#3a2b27]" />
+    {/* Divider */}
+    <div className="my-5 h-px bg-[#352925]" />
 
-  {/* Details */}
-  <div className="space-y-2">
+    {/* Details */}
+    <div className="space-y-3">
 
-    {/* Duration */}
-    <div className="flex items-center gap-2.5">
-      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-500/10 text-orange-500">
-        <Clock3 size={14} />
-      </div>
+      {/* Duration */}
+      <div className="flex items-center gap-3">
 
-      <div>
-        <p className="text-xs text-gray-300">Duration</p>
-        <p className="text-[10px] text-gray-500">
-          {plan?.duration}
-        </p>
-      </div>
-    </div>
-
-    {/* Gender */}
-    <div className="flex items-center gap-2.5">
-      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-500/10 text-orange-500">
-        <Users size={14} />
-      </div>
-
-      <div>
-        <p className="text-xs text-gray-300">Gender</p>
-        <p className="text-[10px] capitalize text-gray-500">
-          {plan?.gender}
-        </p>
-      </div>
-    </div>
-
-    {/* Treadmill */}
-    {plan?.treadmillUsageTime && (
-      <div className="flex items-center gap-2.5">
-        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-500/10 text-orange-500">
-          <Dumbbell size={14} />
+        <div
+          className="
+            flex
+            h-8
+            w-8
+            shrink-0
+            items-center
+            justify-center
+            rounded-lg
+            border border-[#4a372e]
+            bg-[#241916]
+            text-[#b85f29]
+          "
+        >
+          <Clock3 size={14} strokeWidth={1.8} />
         </div>
 
         <div>
-          <p className="text-xs text-gray-300">
-            Treadmill Usage
+          <p
+            className="
+              text-[9px]
+              font-semibold
+              uppercase
+              tracking-[0.12em]
+              text-[#756b66]
+            "
+          >
+            Duration
           </p>
 
-          <p className="text-[10px] text-gray-500">
-            {plan?.treadmillUsageTime}
+          <p className="mt-0.5 text-xs text-[#d2cbc6]">
+            {plan?.duration}
           </p>
         </div>
+
       </div>
-    )}
-  </div>
 
-  {/* Usage */}
-  {/* <div className="mt-4">
-    <h3 className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-gray-500">
-      Included Access
-    </h3>
+      {/* Gender */}
+      <div className="flex items-center gap-3">
 
-    <div className="space-y-2">
-      {plan?.usage?.map((item, index) => (
         <div
-          key={index}
-          className="flex items-center gap-2.5"
+          className="
+            flex
+            h-8
+            w-8
+            shrink-0
+            items-center
+            justify-center
+            rounded-lg
+            border border-[#4a372e]
+            bg-[#241916]
+            text-[#b85f29]
+          "
         >
-          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-500/15 text-orange-500">
-            <Check size={12} strokeWidth={3} />
+          <Users size={14} strokeWidth={1.8} />
+        </div>
+
+        <div>
+          <p
+            className="
+              text-[9px]
+              font-semibold
+              uppercase
+              tracking-[0.12em]
+              text-[#756b66]
+            "
+          >
+            Gender
+          </p>
+
+          <p className="mt-0.5 text-xs capitalize text-[#d2cbc6]">
+            {plan?.gender}
+          </p>
+        </div>
+
+      </div>
+
+      {/* Treadmill */}
+      {plan?.treadmillUsageTime && (
+        <div className="flex items-center gap-3">
+
+          <div
+            className="
+              flex
+              h-8
+              w-8
+              shrink-0
+              items-center
+              justify-center
+              rounded-lg
+              border border-[#4a372e]
+              bg-[#241916]
+              text-[#b85f29]
+            "
+          >
+            <Dumbbell size={14} strokeWidth={1.8} />
           </div>
 
-          <span className="text-xs text-gray-300">
-            {item}
-          </span>
+          <div>
+            <p
+              className="
+                text-[9px]
+                font-semibold
+                uppercase
+                tracking-[0.12em]
+                text-[#756b66]
+              "
+            >
+              Treadmill Usage
+            </p>
+
+            <p className="mt-0.5 text-xs text-[#d2cbc6]">
+              {plan?.treadmillUsageTime}
+            </p>
+          </div>
+
         </div>
-      ))}
+      )}
+
     </div>
-  </div> */}
 
-  {/* Restrictions */}
-  {/* <div className="mt-4 rounded-lg border border-[#3a2b27] bg-[#211613] p-3">
-    <div className="flex gap-2.5">
-      <ShieldAlert
-        size={16}
-        className="mt-0.5 shrink-0 text-orange-500"
-      />
+    {/* CTA */}
+    <div className="mt-auto pt-6">
 
-      <div>
-        <p className="text-xs font-semibold text-gray-200">
-          Restrictions
-        </p>
+      <Link to={`/plan-details/${plan?._id}`}>
+        <button
+          className="
+            w-full
+            rounded-xl
+            border border-[#cb4e0b]
+            bg-accent
+            px-4
+            py-3
+            text-[10px]
+            font-bold
+            uppercase
+            tracking-[0.16em]
+            text-[#fff7f0]
+            transition-all
+            duration-300
+            hover:bg-orange-400
+            hover:shadow-[0_6px_20px_rgba(184,95,41,0.18)]
+          "
+        >
+          Details
+        </button>
+      </Link>
 
-        {plan?.restriction?.length > 0 ? (
-          <ul className="mt-1.5 space-y-1">
-            {plan.restriction.map((item, index) => (
-              <li
-                key={index}
-                className="text-[10px] text-gray-500"
-              >
-                • {item}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="mt-1 text-[10px] text-gray-500">
-            No restrictions
-          </p>
-        )}
-      </div>
     </div>
-  </div> */}
 
-  {/* CTA */}
- <div className="mt-auto pt-4">
-  <Link to={`/plan-details/${plan?._id}`}>
-    <button className="w-full rounded-lg bg-orange-500 px-4 py-2.5 text-xs font-bold uppercase tracking-wide text-black transition hover:bg-orange-400">
-      Details
-    </button>
-  </Link>
   </div>
-</div>
-
-{/* open window  */}
-
-
-
 </div>
   );
 };
