@@ -170,9 +170,10 @@ const [select,setSelect] = useState("")
 
       <button
         type="submit"
+        disabled={isLoading}
         className="w-full rounded-lg bg-orange-500 py-2.5 text-sm font-semibold text-white hover:bg-orange-600"
       >
-        Update Membership
+       {isLoading? "Updating...":" Update Membership"}
       </button>
     </form>
 
