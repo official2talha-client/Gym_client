@@ -55,10 +55,8 @@ const [select,setSelect] = useState("")
   return (
     <>
 
-       <div onClick={()=>isopen(false)}>
-        <X />
-       </div>
     <div className="w-full h-full flex justify-center items-center" onClick={(d)=>d.stopPropagation()}>
+       
 
 <fieldset disabled={isLoading} className="w-full max-w-md rounded-2xl border border-[#352823] bg-[#191310] p-5">
 
@@ -66,9 +64,16 @@ const [select,setSelect] = useState("")
       onSubmit={handleSubmit(onSubmit)}
       
     >
+      <div className="flex justify-between">
+
       <h2 className="mb-5 text-xl font-bold text-white">
         Update Membership
       </h2>
+
+      <div onClick={()=>isopen(false)}>
+        <X />
+       </div>
+      </div>
 
       {/* Start Date */}
       <div className="mb-4">
