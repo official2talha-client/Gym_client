@@ -55,6 +55,7 @@ import PlanDetails from "./pages/PlanDetails";
 import RegisterPage from "./pages/RegisterPage";
 import Trainers from "./pages/sections/Trainers";
 import ExerciseVideoManage from "./pages/admin/ExerciseVideoManage";
+import Usage from "./pages/Usage";
 
 export default function App() {
   return (
@@ -82,6 +83,7 @@ export default function App() {
               path="/trainers/:id"
               element={<TrainerProfile />}
             />
+            <Route path="/usage" element={<Usage />} />
             <Route path="/blog" element={<BlogList />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/login" element={<Login />} />
