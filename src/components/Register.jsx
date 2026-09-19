@@ -106,7 +106,7 @@ const navigate = useNavigate();
 
         <div className="relative mb-8 overflow-hidden border-y border-[#ff681d] bg-[#ff681d] py-3 rotate-[-2deg]">
           <p className="text-center font-black italic tracking-wider text-white text-xl sm:text-2xl">
-            TRANSFORM YOUR BODY
+            Fill up all the field below in proper form.
           </p>
         </div>
 
