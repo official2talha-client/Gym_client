@@ -119,8 +119,8 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden space-x-4 lg:block">
-          <PillButton to="/plans" variant="orange" size="sm">
-            Book Free Trial
+          <PillButton to="/member/dashboard" variant="orange" size="sm">
+            Panel
           </PillButton>
 
              <PillButton to="/login" variant="orange" size="sm">
@@ -151,7 +151,9 @@ export default function Navbar() {
             />
           </span>
         </button>
-      </nav>
+             
+        
+        </nav>
 
       <AnimatePresence>
         {mobileOpen && (
@@ -180,9 +182,13 @@ export default function Navbar() {
                   </NavLink>
                 </li>
               ))}
-              <li className="pt-2 space-x-20D " onClick={()=>setMobileOpen(false)}>
+              <li className="pt-2 space-x-4 " onClick={()=>setMobileOpen(false)}>
                 <PillButton to="/login" variant="orange" className="w-full justify-center">
                   Login
+                </PillButton>
+
+                <PillButton to="/member/dashboard" variant="orange" className="w-full justify-center">
+                  Panel
                 </PillButton>
 
 
