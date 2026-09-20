@@ -112,7 +112,11 @@ const Members = () => {
         </span>
       </button>
     </div>
-  </div>
+   </div>
+   
+   <div className="border w-fit text-accent border-accent p-2 rounded-md mb-2">
+    Total Member : <span className="text-white font-bold">{users?.length}</span>
+   </div>
 
   {/* ================= LOADING ================= */}
   {isLoading && (
