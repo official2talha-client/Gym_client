@@ -16,6 +16,14 @@ import {useGetBusinessForUserQuery} from '../../api/adminApi.js'
 import {useLogoutUserMutation} from '../../api/userApi.js'
 
 const NAV_ITEMS = [
+
+
+  {
+      to: "/",
+      label: "Home",
+      icon: <Home />,
+    },
+
   {
     to: "dashboard",
     label: "Dashboard",
@@ -73,11 +81,7 @@ const NAV_ITEMS = [
     icon: <Icon.settings width={18} height={18} />,
   },
 
-  {
-      to: "/",
-      label: "Home",
-      icon: <Home />,
-    },
+  
 ];
 
 

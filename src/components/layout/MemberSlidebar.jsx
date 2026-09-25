@@ -17,6 +17,11 @@ import {useLogoutUserMutation} from '../../api/userApi.js'
 
 const NAV_ITEMS = [
   {
+    to: "/",
+    label: "Home",
+    icon: <Home />,
+  },
+  {
     to: "dashboard",
     label: "Dashboard",
     icon: <Icon.dashboard width={18} height={18} />,
@@ -53,11 +58,7 @@ const NAV_ITEMS = [
     icon: <Icon.settings width={18} height={18} />,
   },
 
-  {
-    to: "/",
-    label: "Home",
-    icon: <Home />,
-  },
+  
 ];
 
 export default function AdminSidebar() {
